@@ -81,7 +81,7 @@ class KafkaConnectionTest(KazooTestHarness):
 
     def test_connection_init_no_state(self):
         self.assertTrue(self.conn.connected)
-        self.assertIsNone(self.conn._last_state_update)
+        self.assertEquals(self.conn._last_state_update, None)
 
     def test_connection_init_state(self):
         conn = KafkaConnection(self.config['zk_path'], load_state=True, kazoo_client=self.client)
