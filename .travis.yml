@@ -2,15 +2,10 @@ language: python
 python:
   - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "nightly"
 install:
   - "pip install -r requirements.txt"
   - wget http://apache.mirrors.tds.net/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz -O /tmp/zookeeper.tar.gz
   - tar xvzf /tmp/zookeeper.tar.gz -C /tmp
-  - if [[ $TRAVIS_PYTHON_VERSION == 2.6 ]]; then pip install unittest2; fi
 env:
   - ZOOKEEPER_PATH=/tmp/zookeeper-3.4.6
 script: nosetests
